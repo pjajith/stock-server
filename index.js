@@ -7,10 +7,12 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
-  res.send("Running")
+  console.log("ping");
+  res.status(200).send("Running");
 })
 
 app.get("/getInfo", async (req, res) => {
+  console.log("info");
   try {
     //NSE
     const symbol = req.query.symbol;
@@ -169,7 +171,7 @@ app.get("/getInfo", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`API is listening on port ${PORT}`);
