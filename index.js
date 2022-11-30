@@ -169,8 +169,7 @@ app.get("/getInfo", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 80;
-
-app.listen(PORT, () => {
-  console.log(`API is listening on port ${PORT}`);
+app.set('port', process.env.PORT || 80);
+var server = app.listen(app.get('port'), function() {
+debug('Express server listening on port ' + server.address().port);
 });
