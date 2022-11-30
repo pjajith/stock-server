@@ -6,6 +6,10 @@ const { parse } = require("node-html-parser");
 const app = express();
 app.use(bodyParser.json());
 
+app.get('/',(req,res)=>{
+  res.send("Running")
+})
+
 app.get("/getInfo", async (req, res) => {
   try {
     //NSE
@@ -165,7 +169,7 @@ app.get("/getInfo", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 80;
 
 app.listen(PORT, () => {
   console.log(`API is listening on port ${PORT}`);
