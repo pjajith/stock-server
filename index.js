@@ -168,6 +168,7 @@ app.get("/getInfo", async (req, res) => {
     res.send(result);
   } catch (err) {
     console.log(err);
+    res.send("Error")
   }
 });
 
